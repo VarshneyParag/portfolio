@@ -1,0 +1,1797 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Professional portfolio of Parag Varshney, AI Engineer specializing in Full-Stack Development and AI integration">
+  <meta name="keywords" content="AI Engineer, Full-Stack Developer, Machine Learning, Portfolio, Parag Varshney">
+  <title>Parag Varshney | AI Engineer & Full-Stack Developer</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/aos@2.3.1/dist/aos.css">
+  <!-- EmailJS SDK -->
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
+  <script type="text/javascript">
+    emailjs.init('QG-BhUYyy_EurkZJq'); // Your Public Key
+  </script>
+  <style>
+    :root {
+      --bg: #0a0a1a;
+      --fg: #e0e0ff;
+      --accent: #00a8ff;
+      --secondary: #7f5af0;
+      --card-bg: rgba(10, 15, 35, 0.8);
+      --text-muted: #a0a0c0;
+      --neon-glow: 0 0 10px rgba(0, 168, 255, 0.8), 0 0 20px rgba(0, 168, 255, 0.6), 0 0 30px rgba(0, 168, 255, 0.4);
+      --gradient: linear-gradient(135deg, #00a8ff 0%, #7f5af0 100%);
+    }
+    [data-theme="light"] {
+      --bg: #f0f5ff;
+      --fg: #001a33;
+      --accent: #0066cc;
+      --secondary: #4d79ff;
+      --card-bg: rgba(255, 255, 255, 0.9);
+      --text-muted: #4d4d88;
+      --neon-glow: 0 0 10px rgba(0, 102, 204, 0.5), 0 0 20px rgba(0, 102, 204, 0.3);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Outfit', sans-serif;
+      scroll-behavior: smooth;
+    }
+    body {
+      background-color: var(--bg);
+      color: var(--fg);
+      line-height: 1.6;
+      overflow-x: hidden;
+      position: relative;
+      background-image: 
+        radial-gradient(circle at 10% 20%, rgba(0, 168, 255, 0.1) 0%, transparent 20%),
+        radial-gradient(circle at 90% 80%, rgba(127, 90, 240, 0.1) 0%, transparent 20%);
+    }
+    .grid-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: 
+        linear-gradient(rgba(0, 168, 255, 0.05) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 168, 255, 0.05) 1px, transparent 1px);
+      background-size: 50px 50px;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.3;
+    }
+    .particles {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      pointer-events: none;
+    }
+    .particle {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: var(--accent);
+      border-radius: 50%;
+      opacity: 0.7;
+      filter: blur(1px);
+      animation: float 15s infinite linear;
+    }
+    .cursor-follower {
+      position: fixed;
+      width: 30px;
+      height: 30px;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      mix-blend-mode: screen;
+      transition: transform 0.1s ease, width 0.3s ease, height 0.3s ease;
+      filter: drop-shadow(0 0 5px var(--accent));
+      background: radial-gradient(circle, rgba(0,168,255,0.2) 0%, transparent 70%);
+    }
+    .cursor-follower.active {
+      width: 60px;
+      height: 60px;
+      background-color: rgba(0, 168, 255, 0.3);
+      border-color: var(--secondary);
+    }
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.5rem 3rem;
+      background-color: rgba(10, 15, 35, 0.95);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      border-bottom: 1px solid rgba(0, 168, 255, 0.2);
+    }
+    [data-theme="light"] header {
+      background-color: rgba(240, 245, 255, 0.95);
+      border-bottom: 1px solid rgba(0, 102, 204, 0.2);
+      box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+    }
+    header.scrolled {
+      padding: 1rem 3rem;
+      background-color: rgba(5, 10, 30, 0.98);
+    }
+    [data-theme="light"] header.scrolled {
+      background-color: rgba(230, 240, 255, 0.98);
+    }
+    header h1 {
+      color: var(--accent);
+      font-size: 1.8rem;
+      font-weight: 800;
+      text-shadow: var(--neon-glow);
+      transition: all 0.3s ease;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+    }
+    header h1:hover {
+      text-shadow: 0 0 15px rgba(0, 168, 255, 0.8), 0 0 30px rgba(0, 168, 255, 0.6);
+    }
+    nav {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    nav a {
+      color: var(--fg);
+      text-decoration: none;
+      font-weight: 500;
+      position: relative;
+      padding: 0.5rem 0;
+      transition: all 0.3s ease;
+    }
+    [data-theme="light"] nav a {
+      color: var(--fg);
+    }
+    nav a::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: 0;
+      left: 0;
+      background: var(--gradient);
+      transition: width 0.3s ease;
+      box-shadow: var(--neon-glow);
+    }
+    nav a:hover {
+      color: var(--accent);
+    }
+    [data-theme="light"] nav a:hover {
+      color: var(--accent);
+    }
+    nav a:hover::after {
+      width: 100%;
+    }
+    .toggle-theme {
+      background: var(--card-bg);
+      border: 2px solid var(--accent);
+      color: var(--accent);
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      box-shadow: var(--neon-glow);
+    }
+    .toggle-theme:hover {
+      background: var(--gradient);
+      color: white;
+      transform: translateY(-2px);
+    }
+    section {
+      padding: 6rem 3rem;
+      max-width: 1400px;
+      margin: auto;
+      position: relative;
+    }
+    .section-title {
+      font-size: 2.8rem;
+      margin-bottom: 3rem;
+      color: var(--accent);
+      border-left: 6px solid var(--accent);
+      padding-left: 1.5rem;
+      position: relative;
+      font-weight: 800;
+      text-shadow: var(--neon-glow);
+    }
+    .section-title::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -10px;
+      width: 50px;
+      height: 3px;
+      background: var(--gradient);
+      box-shadow: var(--neon-glow);
+    }
+    .hero {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      min-height: 100vh;
+      justify-content: center;
+      padding: 4rem 2rem;
+      position: relative;
+      overflow: hidden;
+      background: radial-gradient(circle at 70% 30%, rgba(0, 168, 255, 0.1) 0%, transparent 30%),
+                  radial-gradient(circle at 30% 70%, rgba(127, 90, 240, 0.1) 0%, transparent 30%);
+    }
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(circle, rgba(0,168,255,0.1) 0%, transparent 70%);
+      z-index: -1;
+      animation: pulse 15s infinite alternate;
+    }
+    @keyframes pulse {
+      0% {
+        transform: scale(1);
+        opacity: 0.1;
+      }
+      100% {
+        transform: scale(1.2);
+        opacity: 0.2;
+      }
+    }
+    .hero-intro {
+      margin-bottom: 1.5rem;
+      text-align: center;
+    }
+    .welcome-text {
+      font-size: 1.5rem;
+      color: var(--secondary);
+      text-shadow: 0 0 10px rgba(127, 90, 240, 0.5);
+      margin-bottom: 0.5rem;
+      display: block;
+      animation: fadeIn 1s ease-out;
+    }
+    .hero h2 {
+      font-size: clamp(2.5rem, 5vw, 4.5rem);
+      margin-bottom: 1.5rem;
+      font-weight: 800;
+      min-height: 120px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .hero h2 .static-text {
+      margin-bottom: 0.5rem;
+      position: relative;
+    }
+    .name-highlight {
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      color: transparent;
+      text-shadow: none;
+    }
+    .hero h2 .static-text::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 50%;
+      height: 3px;
+      background: var(--gradient);
+      box-shadow: var(--neon-glow);
+      animation: underline-grow 1.5s ease-out forwards;
+    }
+    @keyframes underline-grow {
+      0% {
+        width: 0;
+      }
+      100% {
+        width: 50%;
+      }
+    }
+    .hero h2 .typing-text {
+      display: inline-block;
+      overflow: hidden;
+      white-space: nowrap;
+      border-right: 3px solid var(--accent);
+      min-width: 300px;
+      text-align: center;
+      box-shadow: var(--neon-glow);
+    }
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin-bottom: 2.5rem;
+      color: var(--text-muted);
+      position: relative;
+    }
+    .hero p::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 30%;
+      height: 1px;
+      background: var(--gradient);
+      box-shadow: var(--neon-glow);
+    }
+    .hero-buttons {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+    }
+    .btn {
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+    .btn:hover::before {
+      left: 100%;
+    }
+    .btn-primary {
+      background: var(--gradient);
+      color: white;
+      border: none;
+      box-shadow: var(--neon-glow);
+      animation: pulse-glow 2s infinite alternate;
+      position: relative;
+      overflow: hidden;
+    }
+    .btn-primary:hover {
+      background: linear-gradient(135deg, #0088ff 0%, #6f4af0 100%);
+      transform: translateY(-3px);
+    }
+    .btn-primary::after {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(
+        to bottom right,
+        transparent,
+        transparent,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent,
+        transparent,
+        transparent
+      );
+      transform: rotate(30deg);
+      animation: shine 3s infinite;
+    }
+    @keyframes pulse-glow {
+      0% {
+        box-shadow: 0 0 10px rgba(0, 168, 255, 0.7);
+      }
+      100% {
+        box-shadow: 0 0 20px rgba(0, 168, 255, 0.9), 0 0 30px rgba(127, 90, 240, 0.5);
+      }
+    }
+    @keyframes shine {
+      0% {
+        left: -50%;
+        top: -50%;
+      }
+      100% {
+        left: 150%;
+        top: 150%;
+      }
+    }
+    .btn-secondary {
+      background-color: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+      box-shadow: var(--neon-glow);
+    }
+    .btn-secondary:hover {
+      background-color: var(--accent);
+      color: var(--bg);
+      transform: translateY(-3px);
+    }
+    .about-content {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+    .about-text p {
+      margin-bottom: 1.5rem;
+      color: var(--text-muted);
+      position: relative;
+      padding-left: 1.5rem;
+    }
+    .about-text p::before {
+      content: '▹';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      text-shadow: var(--neon-glow);
+    }
+    .about-image {
+      position: relative;
+      border-radius: 1rem;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+      transition: transform 0.5s ease;
+      border: 2px solid var(--accent);
+    }
+    .about-image:hover {
+      transform: perspective(1000px) rotateY(10deg);
+    }
+    .about-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 1rem;
+      transition: transform 0.5s ease;
+    }
+    .about-image:hover img {
+      transform: scale(1.05);
+    }
+    .about-image::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: linear-gradient(135deg, rgba(0, 168, 255, 0.1) 0%, transparent 100%);
+      z-index: 1;
+      pointer-events: none;
+    }
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 2.5rem;
+      perspective: 1000px;
+    }
+    .project-card {
+      border: 1px solid rgba(0, 168, 255, 0.3);
+      padding: 2rem;
+      border-radius: 1rem;
+      background-color: var(--card-bg);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      z-index: 1;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transform-style: preserve-3d;
+      transform: translateZ(0);
+    }
+    .project-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(0, 168, 255, 0.2), transparent);
+      transition: all 0.8s ease-in-out;
+      z-index: -1;
+    }
+    .project-card:hover::before {
+      left: 100%;
+    }
+    .project-card:hover {
+      transform: translateY(-10px) rotateX(5deg) rotateY(5deg) scale(1.02);
+      box-shadow: 0 15px 30px rgba(0, 168, 255, 0.3), 0 0 50px rgba(0, 168, 255, 0.1);
+      border-color: var(--accent);
+    }
+    .project-card:active {
+      transform: scale(0.98) translateZ(0);
+    }
+    .project-card h3 {
+      font-size: 1.5rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      text-shadow: var(--neon-glow);
+    }
+    .project-card p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .project-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+    .project-tag {
+      background-color: rgba(0, 168, 255, 0.2);
+      color: var(--accent);
+      padding: 0.3rem 0.8rem;
+      border-radius: 50px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .project-card:hover .project-tag {
+      background-color: rgba(0, 168, 255, 0.4);
+      transform: translateY(-2px);
+    }
+    .project-links {
+      display: flex;
+      gap: 1rem;
+    }
+    .project-link {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      transition: all 0.3s ease;
+      position: relative;
+    }
+    .project-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 1px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    .project-link:hover {
+      color: var(--fg);
+      text-shadow: var(--neon-glow);
+    }
+    .project-link:hover::after {
+      width: 100%;
+    }
+    .skills-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.5rem;
+      justify-content: center;
+    }
+    .skill-item {
+      border: 1px solid rgba(0, 168, 255, 0.3);
+      padding: 1.5rem;
+      border-radius: 1rem;
+      font-weight: 600;
+      color: var(--accent);
+      background-color: var(--card-bg);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      z-index: 1;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.8rem;
+      min-width: 150px;
+      opacity: 0;
+      transform: translateY(20px);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    .skill-item.show {
+      opacity: 1;
+      transform: translateY(0);
+      transition: all 0.6s ease;
+    }
+    .skill-item i {
+      font-size: 2.5rem;
+      transition: all 0.3s ease;
+    }
+    .skill-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(0, 168, 255, 0.2), transparent);
+      transition: all 0.8s ease-in-out;
+      z-index: -1;
+    }
+    .skill-item:hover::before {
+      left: 100%;
+    }
+    .skill-item:hover {
+      background: var(--gradient);
+      color: white;
+      box-shadow: 0 10px 20px rgba(0, 168, 255, 0.3);
+      transform: translateY(-5px) scale(1.05);
+    }
+    .skill-item:hover i {
+      transform: rotate(15deg) scale(1.2);
+    }
+    .certificates-container, .blog-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+    }
+    .certificate, .blog-card {
+      border: 1px solid rgba(0, 168, 255, 0.3);
+      padding: 1.8rem;
+      border-radius: 1rem;
+      background-color: var(--card-bg);
+      position: relative;
+      overflow: hidden;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      z-index: 1;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    }
+    .certificate h3, .blog-card h3 {
+      font-size: 1.3rem;
+      margin-bottom: 1rem;
+      color: var(--accent);
+      text-shadow: var(--neon-glow);
+    }
+    .certificate p, .blog-card p {
+      color: var(--text-muted);
+      margin-bottom: 1.5rem;
+    }
+    .certificate::before, .blog-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(120deg, transparent, rgba(0, 168, 255, 0.2), transparent);
+      transition: all 0.8s ease-in-out;
+      z-index: -1;
+    }
+    .certificate:hover::before, .blog-card:hover::before {
+      left: 100%;
+    }
+    .certificate:hover, .blog-card:hover {
+      transform: translateY(-5px) scale(1.02);
+      box-shadow: 0 10px 20px rgba(0, 168, 255, 0.3);
+      border-color: var(--accent);
+    }
+    .certificate-image {
+      width: 100%;
+      height: auto;
+      border-radius: 0.5rem;
+      margin-bottom: 1rem;
+      border: 1px solid var(--accent);
+      transition: transform 0.3s ease;
+    }
+    .certificate:hover .certificate-image, .blog-card:hover img {
+      transform: scale(1.03);
+    }
+    .timeline {
+      position: relative;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .timeline::before {
+      content: '';
+      position: absolute;
+      width: 4px;
+      background: linear-gradient(to bottom, var(--accent), var(--secondary));
+      top: 0;
+      bottom: 0;
+      left: 50%;
+      margin-left: -2px;
+      z-index: -1;
+      animation: timeline-glow 2s infinite alternate;
+    }
+    @keyframes timeline-glow {
+      0% {
+        box-shadow: 0 0 10px var(--accent);
+      }
+      100% {
+        box-shadow: 0 0 20px var(--accent);
+      }
+    }
+    .timeline-item {
+      padding: 2rem;
+      position: relative;
+      background-color: var(--card-bg);
+      width: 50%;
+      margin-bottom: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: all 0.4s ease;
+      border: 1px solid var(--accent);
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .timeline-item.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .timeline-item:nth-child(odd) {
+      left: 0;
+    }
+    .timeline-item:nth-child(even) {
+      left: 50%;
+    }
+    .timeline-item::after {
+      content: '';
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: var(--gradient);
+      border-radius: 50%;
+      top: 30px;
+      z-index: 1;
+      box-shadow: var(--neon-glow);
+    }
+    .timeline-item:nth-child(odd)::after {
+      right: -10px;
+    }
+    .timeline-item:nth-child(even)::after {
+      left: -10px;
+    }
+    .timeline-content h3 {
+      color: var(--accent);
+      margin-bottom: 0.5rem;
+      text-shadow: var(--neon-glow);
+    }
+    .timeline-content p {
+      color: var(--text-muted);
+    }
+    .timeline-date {
+      color: var(--accent);
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .contact-form {
+      max-width: 700px;
+      margin: 0 auto;
+    }
+    .form-group {
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .contact-form label {
+      position: absolute;
+      top: 1rem;
+      left: 1rem;
+      color: var(--accent);
+      font-weight: 600;
+      transition: all 0.3s ease;
+      pointer-events: none;
+      background-color: var(--card-bg);
+      padding: 0 0.5rem;
+      border-radius: 4px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 1rem;
+      border-radius: 0.5rem;
+      border: 2px solid var(--accent);
+      background-color: var(--card-bg);
+      color: var(--fg);
+      font-size: 1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 0 0 transparent;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      outline: none;
+      border-color: var(--secondary);
+      box-shadow: 0 0 15px rgba(0, 168, 255, 0.5);
+    }
+    .contact-form input:focus + label,
+    .contact-form textarea:focus + label,
+    .contact-form input:not(:placeholder-shown) + label,
+    .contact-form textarea:not(:placeholder-shown) + label {
+      top: -0.5rem;
+      left: 0.8rem;
+      font-size: 0.8rem;
+      color: var(--secondary);
+    }
+    .contact-form textarea {
+      min-height: 150px;
+      resize: vertical;
+    }
+    .contact-form button {
+      padding: 1rem 2rem;
+      background: var(--gradient);
+      color: white;
+      border: none;
+      font-weight: bold;
+      border-radius: 0.5rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-size: 1rem;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--neon-glow);
+    }
+    .contact-form button::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -100%;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+      transition: 0.5s;
+    }
+    .contact-form button:hover::before {
+      left: 100%;
+    }
+    .contact-form button:hover {
+      background: linear-gradient(135deg, #0088ff 0%, #6f4af0 100%);
+      transform: translateY(-3px);
+    }
+    .form-alert {
+      padding: 1rem;
+      margin-bottom: 2rem;
+      border-radius: 0.5rem;
+      display: none;
+    }
+    .form-success {
+      background-color: rgba(40, 167, 69, 0.2);
+      color: #28a745;
+      border: 1px solid #28a745;
+    }
+    .form-error {
+      background-color: rgba(220, 53, 69, 0.2);
+      color: #dc3545;
+      border: 1px solid #dc3545;
+    }
+    .download-resume {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 2rem;
+      transition: all 0.3s ease;
+      position: relative;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+    }
+    .download-resume::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent);
+      transition: width 0.3s ease;
+    }
+    .download-resume:hover {
+      color: var(--fg);
+      background-color: rgba(0, 168, 255, 0.1);
+    }
+    .download-resume:hover::after {
+      width: 100%;
+    }
+    .back-to-top {
+      position: fixed;
+      right: 30px;
+      bottom: 30px;
+      background: var(--gradient);
+      color: white;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      cursor: pointer;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      z-index: 999;
+      box-shadow: var(--neon-glow);
+      animation: float 3s ease-in-out infinite;
+    }
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0);
+      }
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+    .back-to-top.active {
+      opacity: 1;
+      visibility: visible;
+    }
+    .back-to-top:hover {
+      background: linear-gradient(135deg, #0088ff 0%, #6f4af0 100%);
+      transform: translateY(-5px) scale(1.1);
+    }
+    footer {
+      background-color: #0a0a1a;
+      padding: 3rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+      border-top: 1px solid rgba(0, 168, 255, 0.2);
+    }
+    footer::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: linear-gradient(90deg, transparent, var(--accent), var(--secondary), transparent);
+      animation: footer-glow 3s infinite;
+    }
+    @keyframes footer-glow {
+      0% {
+        transform: translateX(-100%);
+      }
+      100% {
+        transform: translateX(100%);
+      }
+    }
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 1.5rem;
+    }
+    .social-links {
+      display: flex;
+      gap: 1.5rem;
+    }
+    .social-link {
+      color: var(--fg);
+      font-size: 1.5rem;
+      transition: all 0.3s ease;
+      position: relative;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background-color: rgba(0, 168, 255, 0.1);
+    }
+    .social-link::before {
+      content: '';
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      border: 2px solid var(--accent);
+      border-radius: 50%;
+      animation: pulse-border 1.5s infinite;
+      opacity: 0;
+    }
+    .social-link:hover::before {
+      animation: pulse-border 1.5s infinite;
+    }
+    @keyframes pulse-border {
+      0% {
+        transform: scale(1);
+        opacity: 1;
+      }
+      100% {
+        transform: scale(1.5);
+        opacity: 0;
+      }
+    }
+    .social-link:hover {
+      background: var(--gradient);
+      color: white;
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: var(--neon-glow);
+    }
+    .copyright {
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+    @media (max-width: 768px) {
+      header {
+        padding: 1rem;
+        flex-direction: column;
+        gap: 1rem;
+      }
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      section {
+        padding: 4rem 1.5rem;
+      }
+      .section-title {
+        font-size: 2.2rem;
+      }
+      .about-content {
+        grid-template-columns: 1fr;
+      }
+      .project-grid, .skills-container, .certificates-container, .blog-container {
+        grid-template-columns: 1fr;
+      }
+      .timeline::before {
+        left: 31px;
+      }
+      .timeline-item {
+        width: 100%;
+        padding-left: 70px;
+        padding-right: 25px;
+      }
+      .timeline-item:nth-child(even) {
+        left: 0;
+      }
+      .timeline-item::after {
+        left: 21px;
+      }
+      .hero-buttons {
+        flex-direction: column;
+        width: 100%;
+      }
+      .btn {
+        width: 100%;
+        justify-content: center;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="grid-overlay"></div>
+  <div class="particles" id="particles"></div>
+  <div class="cursor-follower" id="cursorFollower"></div>
+
+  <header id="header">
+    <h1>Parag Varshney</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#certificates">Certifications</a>
+      <a href="#education">Education</a>
+      <a href="#blog">Blog</a>
+      <a href="#contact">Contact</a>
+      <button class="toggle-theme">
+        <i class="fas fa-moon"></i>
+        <span>Dark Mode</span>
+      </button>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-intro" data-aos="fade-down">
+      <span class="welcome-text">Welcome to my portfolio</span>
+      <h2>
+        <span class="static-text">I'm <span class="name-highlight">Parag Varshney</span></span>
+        <span class="typing-text" id="typingText"></span>
+      </h2>
+    </div>
+    <p>AI Engineer & Python Developer specializing in building intelligent web applications with cutting-edge technologies.</p>
+    <div class="hero-buttons">
+      <a href="#projects" class="btn btn-primary">
+        <i class="fas fa-code"></i> View My Work
+      </a>
+      <a href="#contact" class="btn btn-secondary">
+        <i class="fas fa-paper-plane"></i> Contact Me
+      </a>
+    </div>
+  </section>
+
+  <section id="about" data-aos="fade-up">
+    <h2 class="section-title">About Me</h2>
+    <div class="about-content">
+      <div class="about-text">
+        <p>I'm a passionate AI Engineer currently pursuing my B.Tech in Artificial Intelligence and Machine Learning at TMU. With a strong foundation in both theoretical concepts and practical applications, I specialize in developing intelligent web solutions that bridge the gap between AI and user experience.</p>
+        <p>My expertise lies in Full-Stack Development with a focus on integrating AI capabilities into scalable web applications. I'm particularly interested in natural language processing, computer vision, and their applications in creating more intuitive user interfaces.</p>
+        <p>When I'm not coding, you can find me contributing to open-source projects, writing technical blogs, or exploring new technologies in the AI/ML space.</p>
+        <div class="skills-container" style="margin-top: 2rem;">
+          <div class="skill-item">
+            <i class="fas fa-robot"></i>
+            <span>AI/ML</span>
+          </div>
+          <div class="skill-item">
+            <i class="fab fa-python"></i>
+            <span>Python</span>
+          </div>
+          <div class="skill-item">
+            <i class="fas fa-chart-bar"></i>
+            <span>Power BI</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-image" data-aos="fade-left">
+        <img src="c:\Users\parag\OneDrive\Desktop\My Fortfolio\WhatsApp Image 2025-07-12 at 20.45.07_39a111a6.jpg" alt="Parag Varshney">
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" data-aos="zoom-in-up">
+    <h2 class="section-title">Featured Projects</h2>
+    <div class="project-grid">
+      <div class="project-card">
+        <h3>Diabetes Prediction using ML</h3>
+        <div class="project-tags">
+          <span class="project-tag">Machine Learning</span>
+          <span class="project-tag">Python</span>
+          <span class="project-tag">Scikit-learn</span>
+        </div>
+        <p>A predictive model that analyzes medical data to assess diabetes risk factors and predict likelihood of diabetes with 89% accuracy using various ML algorithms.</p>
+        <div class="project-links">
+          <a href="https://diabetes-prediction-using-ml-iihh.onrender.com" class="project-link" target="_blank">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+          <a href="https://github.com/VarshneyParag/Diabetes_Prediction_Using_ML" class="project-link" target="_blank">
+            <i class="fab fa-github"></i> Source Code
+          </a>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3>FAQ AI Chatbot</h3>
+        <div class="project-tags">
+          <span class="project-tag">NLP</span>
+          <span class="project-tag">Chatbot</span>
+          <span class="project-tag">Python</span>
+        </div>
+        <p>Artificial intelligence based chatbot that answers frequently asked questions using natural language processing and semantic similarity techniques.</p>
+        <div class="project-links">
+          <a href="https://codealpha-faq-chatbot.onrender.com" class="project-link">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+          <a href="https://github.com/VarshneyParag/codealpha_faq_chatbot" class="project-link" target="_blank">
+            <i class="fab fa-github"></i> Source Code
+          </a>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3>SVM Cats vs Dogs Classifier</h3>
+        <div class="project-tags">
+          <span class="project-tag">Computer Vision</span>
+          <span class="project-tag">SVM</span>
+          <span class="project-tag">OpenCV</span>
+        </div>
+        <p>Image classification system using Support Vector Machines to distinguish between cats and dogs with 82% accuracy, trained on Kaggle dataset.</p>
+        <div class="project-links">
+          <a href="https://svm-cats-vs-dogs-1.onrender.com" class="project-link">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+          <a href="https://github.com/VarshneyParag/svm_cats_vs_dogs" class="project-link" target="_blank">
+            <i class="fab fa-github"></i> Source Code
+          </a>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3>House Price Prediction</h3>
+        <div class="project-tags">
+          <span class="project-tag">Regression</span>
+          <span class="project-tag">Feature Engineering</span>
+          <span class="project-tag">Pandas</span>
+        </div>
+        <p>ML model that predicts housing prices based on features like location, size, and amenities using advanced regression techniques with 92% R-squared score.</p>
+        <div class="project-links">
+          <a href="#" class="project-link">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+          <a href="https://github.com/VarshneyParag/house_price_prediction" class="project-link" target="_blank">
+            <i class="fab fa-github"></i> Source Code
+          </a>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3>Customer Segmentation</h3>
+        <div class="project-tags">
+          <span class="project-tag">Clustering</span>
+          <span class="project-tag">K-means</span>
+          <span class="project-tag">Data Analysis</span>
+        </div>
+        <p>Unsupervised learning project that segments customers into distinct groups based on purchasing behavior for targeted marketing strategies.</p>
+        <div class="project-links">
+          <a href="#" class="project-link">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+          <a href="https://github.com/VarshneyParag/customer_segmentation" class="project-link" target="_blank">
+            <i class="fab fa-github"></i> Source Code
+          </a>
+        </div>
+      </div>
+      <div class="project-card">
+        <h3>Language Translator</h3>
+        <div class="project-tags">
+          <span class="project-tag">Google API</span>
+          <span class="project-tag">GUI</span>
+          <span class="project-tag">Python</span>
+        </div>
+        <p>Translate text instantly across 100+ languages with a Python-powered GUI tool using Google Translate API with real-time results.</p>
+        <div class="project-links">
+          <a href="https://codealpha-languagetranslater.onrender.com" class="project-link">
+            <i class="fas fa-external-link-alt"></i> Live Demo
+          </a>
+          <a href="https://github.com/VarshneyParag/codealpha_LanguageTranslater" class="project-link" target="_blank">
+            <i class="fab fa-github"></i> Source Code
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="skills" data-aos="zoom-in-up">
+    <h2 class="section-title">Technical Skills</h2>
+    <div class="skills-container">
+      <div class="skill-item">
+        <i class="fab fa-python"></i>
+        <span>Python</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-js"></i>
+        <span>JavaScript</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-java"></i>
+        <span>Java</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-html5"></i>
+        <span>HTML5</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-css3-alt"></i>
+        <span>CSS3</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-react"></i>
+        <span>React</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-node-js"></i>
+        <span>Node.js</span>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-database"></i>
+        <span>MongoDB</span>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-database"></i>
+        <span>MySQL</span>
+      </div>
+      <div class="skill-item">
+        <i class="fab fa-aws"></i>
+        <span>AWS</span>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-brain"></i>
+        <span>TensorFlow</span>
+      </div>
+      <div class="skill-item">
+        <i class="fas fa-chart-line"></i>
+        <span>PyTorch</span>
+      </div>
+    </div>
+  </section>
+
+  <section id="certificates" data-aos="fade-up">
+    <h2 class="section-title">Certifications</h2>
+    <div class="certificates-container">
+      <div class="certificate">
+        <h3>💡 Intro to Programming – Kaggle Learn
+Certification: Intro to Programming</h3>
+        <img src="C:\Users\parag\OneDrive\Desktop\My Fortfolio\parag varshney - Intro to Programming.png" alt="" class="certificate-image">
+        <p>Issued by Kaggle • Completed on 20 February 2023</p>
+        <p>Earned the Intro to Programming certificate from Kaggle Learn, completing a ~5‑hour course designed for total beginners. This certification confirms practical skills in:
+
+Writing basic Python code using arithmetic operations, variables, and data types
+
+Structuring logic through conditional statements (if/else)
+
+Defining and using functions
+
+Working with lists and fundamental data structures</p>
+      </div>
+      <div class="certificate">
+        <h3>🐍 Python – Kaggle Learn
+Certification: Python</h3>
+        <img src="C:\Users\parag\OneDrive\Desktop\My Fortfolio\parag varshney - Python.png" alt="AWS Certificate" class="certificate-image">
+        <p>Issued by Kaggle • Completed on 19 February 2023</p>
+        <p>Successfully completed the Python certification course on Kaggle Learn, gaining essential hands-on experience in writing clean, efficient Python code. This course focused on foundational programming concepts required for data science and analytics, including:
+
+          • Writing Python syntax and understanding variables, expressions, and types
+
+          • Working with functions, conditionals, and control flow
+
+          • Using loops (for and while) effectively
+
+          • Exploring lists, dictionaries, and other key data structures
+
+          • Reading and manipulating data with Python
+
+          • Introduction to object-oriented concepts and debugging</p>
+      </div>
+      <div class="certificate">
+        <h3>🤖 Intro to Machine Learning – Kaggle Learn
+Certification: Intro to Machine Learning</h3>
+        <img src="C:\Users\parag\OneDrive\Desktop\My Fortfolio\parag varshney - Intro to Machine Learning.png" alt="Deep Learning Certificate" class="certificate-image">
+        <p>Issued by Kaggle • Completed on 20 February 2023</p>
+        <p>Earned the Intro to Machine Learning certification from Kaggle Learn by successfully completing a practical, beginner-friendly course focused on core machine learning concepts using Python and Scikit-learn. This course provided hands-on experience with:
+
+Understanding supervised learning fundamentals
+
+Building and training predictive models
+
+Evaluating model performance using metrics like MAE and RMSE
+
+Handling missing values and categorical data
+
+Applying techniques like data splitting and model validation
+
+Using decision trees and random forests for prediction tasks</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="education" data-aos="fade-left">
+    <h2 class="section-title">Education</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-date">
+          <i class="fas fa-calendar-alt"></i>
+          2024 - 2026 (Expected)
+        </div>
+        <div class="timeline-content">
+          <h3>B.Tech in Artificial Intelligence & Machine Learning</h3>
+          <p>Teerthanker Mahaveer University, Moradabad</p>
+          <p>CGPA: 7.6/10 (Current)</p>
+        </div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-date">
+          <i class="fas fa-calendar-alt"></i>
+          2020
+        </div>
+        <div class="timeline-content">
+          <h3>Senior Secondary (XII)</h3>
+          <p>UP Board - krishna Murari Manorama Inter Colledge, Bahjoi</p>
+          <p>Percentage: 56.0%</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="blog" data-aos="zoom-in-down">
+    <h2 class="section-title">Latest Articles</h2>
+    <div class="blog-container">
+      <div class="blog-card">
+        <h3>🧠 Diabetes Prediction using Machine Learning</h3>
+        <img src="C:\Users\parag\OneDrive\Desktop\My Fortfolio\Screenshot 2025-07-12 233915.png?text=Diabetes web APP" alt="Diabetes web APP" style="width:100%; border-radius:0.5rem; margin-bottom:1rem;">
+        <p>A technical overview of developing a medical prediction system using machine learning algorithms for real-time diabetes risk assessment.💡 My Solution
+This web application uses a trained machine learning model (Logistic Regression / Random Forest / KNN etc.) to predict whether a person is likely to have diabetes, based on inputs like:
+
+Pregnancies
+
+Glucose Level
+
+Blood Pressure
+
+Skin Thickness
+
+Insulin
+
+BMI
+
+Diabetes Pedigree Function
+
+Age
+
+These features are provided in the Pima Indian Diabetes Dataset, a standard dataset used for binary classification.</p>
+        <a href="https://www.linkedin.com/posts/parag-varshney-15a62b231_artificialintelligence-machinelearning-aiprojects-activity-7349862955586379776-PrXZ?utm_source=share&utm_medium=member_desktop&rcm=ACoAADnvhRYBi1SFs99FHgjBNJv5J95tM1Y0a_M" class="project-link" style="margin-top: auto;">
+          <i class="fas fa-book-open"></i> Read Article
+        </a>
+      </div>
+      <div class="blog-card">
+        <h3>Building an AI Translator That Bridges Global Divides</h3>
+        <img src="C:\Users\parag\OneDrive\Desktop\My Fortfolio\Screenshot 2025-07-13 095132.png?text=language+translator" alt="language+translator" style="width:100%; border-radius:0.5rem; margin-bottom:1rem;">
+        <p>The Silent Revolution in Web Development
+Most users don't care about your stack—they care about magic that works. When I set out to build a language translator, I discovered three non-negotiable requirements:
+
+Instant results (under 1.5s response time)
+
+Accuracy surpassing free tools
+
+Zero learning curve
+
+The Bigger Picture
+This isn't just about converting words—it's about proving that production-grade AI tools can be:
+✅ Affordable (current cost: $0/month)
+✅ Accessible (no ML PhD required)
+✅ Adaptable (from tourists to Fortune 500 teams)</p>
+        <a href="https://www.linkedin.com/posts/parag-varshney-15a62b231_ai-machinelearning-python-activity-7350017511649595392-Jjpc?utm_source=share&utm_medium=member_desktop&rcm=ACoAADnvhRYBi1SFs99FHgjBNJv5J95tM1Y0a_M" class="project-link" style="margin-top: auto;">
+          <i class="fas fa-book-open"></i> Read Article
+        </a>
+      </div>
+      <div class="blog-card">
+        <h3>📘 The Future of AI in Education
+Exploring how this AI-Powered FAQ Chatbot transforms learning and support systems</h3>
+        <img src="C:\Users\parag\OneDrive\Desktop\My Fortfolio\Screenshot 2025-07-13 112146.png" alt="AI Chatbot" style="width:100%; border-radius:0.5rem; margin-bottom:1rem;">
+        <p>In an age of information overload, static FAQ pages often fail to serve users efficiently. That's exactly why I built the AI-Powered FAQ Chatbot—a smart assistant that can understand natural language questions, deliver instant and accurate responses, and enhance user experience across educational and support platforms.
+
+But more than just a chatbot, this project is a real glimpse into the future of AI in education.
+💡 My AI-Based Solution
+This chatbot uses Natural Language Processing (NLP) to interact conversationally and extract relevant answers from a corpus of questions.
+
+✅ Built with Python, Flask, and NLTK
+✅ Uses TF-IDF Vectorization + Cosine Similarity
+✅ Delivers fast, relevant, and intelligent responses
+✅ Hosted live via Render</p>
+        <a href="https://www.linkedin.com/posts/parag-varshney-15a62b231_ai-chatbots-edtech-activity-7350042101641867264-_Q3t?utm_source=share&utm_medium=member_desktop&rcm=ACoAADnvhRYBi1SFs99FHgjBNJv5J95tM1Y0a_M" class="project-link" style="margin-top: auto;">
+          <i class="fas fa-book-open"></i> Read Article
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" data-aos="zoom-in-up">
+    <h2 class="section-title">Get In Touch</h2>
+    <div id="form-alert" class="form-alert"></div>
+    <form class="contact-form" id="contactForm">
+      <div class="form-group">
+        <input type="text" id="name" name="name" placeholder=" " required>
+        <label for="name">Your Name</label>
+      </div>
+      <div class="form-group">
+        <input type="email" id="email" name="email" placeholder=" " required>
+        <label for="email">Email Address</label>
+      </div>
+      <div class="form-group">
+        <input type="text" id="subject" name="subject" placeholder=" " required>
+        <label for="subject">Subject</label>
+      </div>
+      <div class="form-group">
+        <textarea id="message" name="message" placeholder=" " required></textarea>
+        <label for="message">Your Message</label>
+      </div>
+      <button type="submit">
+        <i class="fas fa-paper-plane"></i> Send Message
+      </button>
+    </form>
+    <div style="margin-top: 2rem; text-align: center;">
+      <p style="margin-bottom: 1rem; color: var(--accent); font-weight: 600;">Or contact me directly:</p>
+      <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+        <a href="mailto:paragvarshney9678@gmail.com" style="color: var(--accent); text-decoration: none;">
+          <i class="fas fa-envelope"></i> paragvarshney9678@gmail.com
+        </a>
+        <a href="tel:+919760865414" style="color: var(--accent); text-decoration: none;">
+          <i class="fas fa-phone"></i> +91 9760865414
+        </a>
+      </div>
+    </div>
+    <a href="C:\Users\parag\OneDrive\Desktop\My Fortfolio\Parag-Resume.pdf" download class="download-resume">
+      <i class="fas fa-file-pdf"></i> Download My Resume
+    </a>
+  </section>
+
+  <div class="back-to-top" id="backToTop">
+    <i class="fas fa-arrow-up"></i>
+  </div>
+
+  <footer>
+    <div class="footer-content">
+      <div class="social-links">
+        <a href="https://github.com/VarshneyParag" class="social-link" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github"></i>
+        </a>
+        <a href="https://www.linkedin.com/in/parag-varshney-15a62b231/" class="social-link" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+        <a href="https://twitter.com/" class="social-link" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-twitter"></i>
+        </a>
+        <a href="https://www.instagram.com/parag_varshney_13/" class="social-link" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-instagram"></i>
+        </a>
+      </div>
+      <p class="copyright">&copy; 2023 Parag Varshney. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    // Initialize AOS animation library
+    AOS.init({
+      duration: 800,
+      easing: 'ease-in-out',
+      once: true
+    });
+
+    // Theme toggle functionality
+    const html = document.documentElement;
+    const themeToggle = document.querySelector('.toggle-theme');
+    const savedTheme = localStorage.getItem('theme');
+    
+    if (savedTheme) {
+      html.dataset.theme = savedTheme;
+      updateThemeButton(savedTheme);
+    }
+
+    themeToggle.addEventListener('click', () => {
+      const theme = html.dataset.theme === 'light' ? '' : 'light';
+      html.dataset.theme = theme;
+      localStorage.setItem('theme', theme);
+      updateThemeButton(theme);
+    });
+
+    function updateThemeButton(theme) {
+      if (theme === 'light') {
+        themeToggle.innerHTML = '<i class="fas fa-sun"></i><span>Light Mode</span>';
+      } else {
+        themeToggle.innerHTML = '<i class="fas fa-moon"></i><span>Dark Mode</span>';
+      }
+    }
+
+    // Back to top button
+    const backToTop = document.getElementById('backToTop');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add('active');
+      } else {
+        backToTop.classList.remove('active');
+      }
+    });
+
+    backToTop.addEventListener('click', () => {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    });
+
+    // Header scroll effect
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 50) {
+        header.classList.add('scrolled');
+      } else {
+        header.classList.remove('scrolled');
+      }
+    });
+
+    // EmailJS Form Submission
+    document.getElementById('contactForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const form = this;
+      const alertBox = document.getElementById('form-alert');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const originalBtnText = submitBtn.innerHTML;
+      
+      // Show loading state
+      submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+      submitBtn.disabled = true;
+      
+      // Prepare form data
+      const formData = {
+        name: form.name.value,
+        email: form.email.value,
+        subject: form.subject.value,
+        message: form.message.value
+      };
+      
+      // Send email using EmailJS
+      emailjs.send('service_ijs0qtq', 'template_h9wdr8j', formData)
+        .then(function(response) {
+          alertBox.textContent = 'Thank you for your message! I will contact you soon.';
+          alertBox.className = 'form-alert form-success';
+          alertBox.style.display = 'block';
+          
+          // Reset form
+          form.reset();
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+          
+          // Hide alert after 5 seconds
+          setTimeout(() => {
+            alertBox.style.display = 'none';
+          }, 5000);
+        }, function(error) {
+          alertBox.textContent = 'Failed to send message. Please try again later or contact me directly.';
+          alertBox.className = 'form-alert form-error';
+          alertBox.style.display = 'block';
+          
+          submitBtn.innerHTML = originalBtnText;
+          submitBtn.disabled = false;
+          
+          // Hide alert after 5 seconds
+          setTimeout(() => {
+            alertBox.style.display = 'none';
+          }, 5000);
+        });
+    });
+
+    // Typing animation
+    const phrases = ["AI Engineer", "Python Developer", "Machine Learning Enthusiast"];
+    let currentPhrase = 0;
+    let currentLetter = 0;
+    let isDeleting = false;
+    let typingSpeed = 150;
+    const typingText = document.getElementById('typingText');
+
+    function type() {
+      const fullText = phrases[currentPhrase];
+      
+      if (isDeleting) {
+        typingText.textContent = fullText.substring(0, currentLetter - 1);
+        currentLetter--;
+        typingSpeed = 50;
+      } else {
+        typingText.textContent = fullText.substring(0, currentLetter + 1);
+        currentLetter++;
+        typingSpeed = 150;
+      }
+
+      if (!isDeleting && currentLetter === fullText.length) {
+        typingSpeed = 2000;
+        isDeleting = true;
+      } else if (isDeleting && currentLetter === 0) {
+        isDeleting = false;
+        currentPhrase = (currentPhrase + 1) % phrases.length;
+        typingSpeed = 500;
+      }
+
+      setTimeout(type, typingSpeed);
+    }
+
+    // Start the typing animation after a brief delay
+    setTimeout(() => {
+      typingText.style.borderRight = '3px solid var(--accent)';
+      type();
+    }, 1000);
+
+    // Scroll animation for skills
+    const skillItems = document.querySelectorAll('.skill-item');
+    
+    function checkScroll() {
+      skillItems.forEach((item, index) => {
+        const itemTop = item.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (itemTop < windowHeight - 100) {
+          setTimeout(() => {
+            item.classList.add('show');
+          }, index * 100);
+        }
+      });
+    }
+    
+    // Initial check
+    checkScroll();
+    
+    // Check on scroll
+    window.addEventListener('scroll', checkScroll);
+
+    // Timeline item animations
+    const timelineItems = document.querySelectorAll('.timeline-item');
+    
+    function checkTimelineScroll() {
+      timelineItems.forEach((item, index) => {
+        const itemTop = item.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        
+        if (itemTop < windowHeight - 100) {
+          setTimeout(() => {
+            item.classList.add('show');
+          }, index * 200);
+        }
+      });
+    }
+    
+    // Initial check
+    checkTimelineScroll();
+    
+    // Check on scroll
+    window.addEventListener('scroll', checkTimelineScroll);
+
+    // Particle background effect
+    function createParticles() {
+      const particlesContainer = document.getElementById('particles');
+      const particleCount = window.innerWidth < 768 ? 30 : 50;
+      
+      for (let i = 0; i < particleCount; i++) {
+        const particle = document.createElement('div');
+        particle.classList.add('particle');
+        
+        // Random position
+        const posX = Math.random() * 100;
+        const posY = Math.random() * 100;
+        particle.style.left = `${posX}%`;
+        particle.style.top = `${posY}%`;
+        
+        // Random size
+        const size = Math.random() * 3 + 1;
+        particle.style.width = `${size}px`;
+        particle.style.height = `${size}px`;
+        
+        // Random animation
+        const duration = Math.random() * 20 + 10;
+        const delay = Math.random() * 5;
+        particle.style.animation = `float ${duration}s ease-in-out ${delay}s infinite`;
+        
+        particlesContainer.appendChild(particle);
+      }
+    }
+    
+    createParticles();
+
+    // Custom cursor effect
+    const cursorFollower = document.getElementById('cursorFollower');
+    
+    document.addEventListener('mousemove', (e) => {
+      cursorFollower.style.left = `${e.clientX}px`;
+      cursorFollower.style.top = `${e.clientY}px`;
+    });
+    
+    // Make cursor bigger when hovering over clickable elements
+    const interactiveElements = document.querySelectorAll('a, button, .project-card, .skill-item, .certificate, .blog-card, .timeline-item, .contact-form input, .contact-form textarea, .contact-form button');
+    
+    interactiveElements.forEach(el => {
+      el.addEventListener('mouseenter', () => {
+        cursorFollower.classList.add('active');
+      });
+      el.addEventListener('mouseleave', () => {
+        cursorFollower.classList.remove('active');
+      });
+    });
+
+    // Animate elements when they come into view
+    const animateOnScroll = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('animate');
+          animateOnScroll.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.project-card, .certificate, .blog-card').forEach(card => {
+      animateOnScroll.observe(card);
+    });
+  </script>
+</body>
+</html>
